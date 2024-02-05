@@ -39,16 +39,14 @@ app.use(bodyParser.json());
 const cityRoute = require("./routes/cities");
 app.use("/state/city", cityRoute);
 
+// Copilot
 try {
-  // Connect to DB
   mongoose.connect(
-    process.env.MONGODB_URI,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log("connected to DB!")
-  );
+    process.env.MONGODB_URI as string
+  ).then(() => console.log("connected to DB!")); // use then method instead of callback
 } catch (error:any) {
   console.log(error.message);
-} finally {
 }
+
 
 app.listen(3000);

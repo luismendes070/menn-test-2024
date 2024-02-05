@@ -34,5 +34,8 @@ MONGODB_URI
 # v1.0.8
 mongoose connect exception handling
 
+# v1.0.9
+mongoose connect exception handling
+
 
 
