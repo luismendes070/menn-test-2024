@@ -70,4 +70,10 @@ request and response types
 # v1.1.18
 papaparse error handling
 
+# v1.1.19
+Copilot
+https://stackoverflow.com/questions/67972427/typescript-function-overloading-no-overload-matches-this-call
+
+https://stackoverflow.com/questions/44832316/variable-test-is-used-before-being-assigned-typescript
+
 

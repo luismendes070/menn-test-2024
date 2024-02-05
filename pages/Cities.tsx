@@ -21,26 +21,36 @@ export default function Cities({cities}: CitiesProps ) {
 
   // Copilot
   // Declare cities variable here
-  let citiesHelper: City[];
+  let csvResults: City[];
 
   // Stream big file in worker thread
 
 try{
 
-  Papa.parse(new URL("uscities-data.csv"), {
+  csvResults = await new Promise((resolve, reject) => {
+  Papa.parse(new URL("uscities-data.csv").toString(), {
     worker: true,
     step: function (results:City[]) {
-      citiesHelper = results.data;
+      csvResults = results.data;
       console.log("Row:", results.data);
     },
     // Use complete callback to assign data to cities variable
     complete: function (results) {
       // citiesHelper = results.data;
-      cities = citiesHelper;
+      cities = csvResults;
     },
+    // Use reject to handle errors
+    error: function (error:any) {
+      reject(error);
+    }
+    });
   });
 
+  return csvResults;//Copilot
+
 }catch(error:any){
+
+console.log(error.message);
 
 }finally{
 
@@ -82,7 +92,7 @@ export const getServerSideProps: GetServerSideProps<CitiesProps> = async (
     return {
       props: { cities: JSON.parse(JSON.stringify(cities)) },
     };
-  } catch (e) {
+  } catch (e:any) {
     console.error(e);
   }
 };
