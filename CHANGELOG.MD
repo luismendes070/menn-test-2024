@@ -31,5 +31,8 @@ https://stackoverflow.com/questions/56577201/why-is-isolatedmodules-error-fixed-
 types
 MONGODB_URI
 
+# v1.0.8
+mongoose connect exception handling
+
 
 
