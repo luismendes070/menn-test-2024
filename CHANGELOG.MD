@@ -76,4 +76,7 @@ https://stackoverflow.com/questions/67972427/typescript-function-overloading-no-
 
 https://stackoverflow.com/questions/44832316/variable-test-is-used-before-being-assigned-typescript
 
+# v1.1.20
+async papaparse
+
 

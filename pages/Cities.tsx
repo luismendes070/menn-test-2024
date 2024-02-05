@@ -16,7 +16,7 @@ interface CitiesProps {
   cities: City[];
 }
 
-export default function Cities({cities}: CitiesProps ) {
+export default async function Cities({cities}: CitiesProps ) {
  
 
   // Copilot
