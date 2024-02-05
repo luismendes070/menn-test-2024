@@ -57,5 +57,9 @@ CitiesProps typo fix
 # v1.1.14
 results:City[]
 
+# v1.1.15
+papaparse
+new URL("uscities-data.csv")
+
 
 

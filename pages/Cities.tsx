@@ -25,7 +25,7 @@ export default function Cities({cities}: CitiesProps ) {
 
   // Stream big file in worker thread
 
-  Papa.parse("uscities-data.csv", {
+  Papa.parse(new URL("uscities-data.csv"), {
     worker: true,
     step: function (results:City[]) {
       citiesHelper = results.data;
