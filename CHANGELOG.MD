@@ -51,5 +51,8 @@ li key={city._id}
 # v1.1.12
 nextJS SSR timestamp removed
 
+# v1.1.13 
+CitiesProps typo fix
+
 
 
