@@ -20,5 +20,8 @@ https://stackoverflow.com/questions/67118496/nextjs-rangeerror-maximum-call-stac
 
 Papaparse
 
+# v1.0.4
+City mongoose schema
+
 
 

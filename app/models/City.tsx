@@ -3,13 +3,10 @@
 import mongoose from "mongoose";
 
 const CitySchema = new mongoose.Schema({
-    name: String,
-    state: String,
-    articles: Array,
-    faqs: Array,
-    reviews: Array,
-    videos: Array,
-    attorneys: Array
+    _id: String,
+    city: String,
+    state_id: String,
+    state_name: String,
   });
   
   module.exports = mongoose.model('Cities', CitySchema);
