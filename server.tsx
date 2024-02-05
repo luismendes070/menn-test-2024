@@ -23,7 +23,7 @@ import mongoose from "mongoose";
       try{
       // Save it to the database
       city.save();
-    }catch(error){
+    }catch(error:any){
       console.error("outer", error.message);
     }finally{
     
@@ -43,7 +43,7 @@ import mongoose from "mongoose";
   
   // Connect to DB
   mongoose.connect(
-    process.env.DB_CONNECTION,
+    process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('connected to DB!')
   );

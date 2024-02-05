@@ -27,5 +27,9 @@ City mongoose schema
 Vercel deployment logs
 https://stackoverflow.com/questions/56577201/why-is-isolatedmodules-error-fixed-by-any-import
 
+# v1.0.7
+types
+MONGODB_URI
+
 
 
