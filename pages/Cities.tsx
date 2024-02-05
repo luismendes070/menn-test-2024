@@ -27,7 +27,7 @@ export default function Cities({cities}: CitiesProps ) {
 
   Papa.parse("uscities-data.csv", {
     worker: true,
-    step: function (results) {
+    step: function (results:City[]) {
       citiesHelper = results.data;
       console.log("Row:", results.data);
     },

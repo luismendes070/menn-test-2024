@@ -54,5 +54,8 @@ nextJS SSR timestamp removed
 # v1.1.13 
 CitiesProps typo fix
 
+# v1.1.14
+results:City[]
+
 
 
