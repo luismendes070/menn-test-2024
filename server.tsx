@@ -15,6 +15,8 @@ const csv = require("csv-parser");
 // Define your City model as usual
 const City = mongoose.model("City", require("./app/models/City.tsx"));
 
+app.use(express.json())
+
 fs.createReadStream("uscities-data.csv")
   .pipe(csv())
   .on("data", (row: any) => {
@@ -41,7 +43,7 @@ app.use("/state/city", cityRoute);
 
 // Copilot
 try {
-  mongoose.connect(
+  await mongoose.connect(
     process.env.MONGODB_URI as string
   ).then(() => console.log("connected to DB!")); // use then method instead of callback
 } catch (error:any) {
