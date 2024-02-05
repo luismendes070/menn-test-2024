@@ -30,7 +30,7 @@ const jwtCheck = auth({
 // enforce on all endpoints
 app.use(jwtCheck);
 
-app.get('/authorized', function (req, res) {
+app.get('/authorized', function (req: any, res: { send: (arg0: string) => void; }) {
     res.send('Secured Resource');
 });
 
