@@ -23,5 +23,9 @@ Papaparse
 # v1.0.4
 City mongoose schema
 
+# v1.0.6 
+Vercel deployment logs
+https://stackoverflow.com/questions/56577201/why-is-isolatedmodules-error-fixed-by-any-import
+
 
 
