@@ -1,6 +1,17 @@
 import clientPromise from "../lib/mongodb";
-
+import Papa from "papaparse";
 export default function Cities({cities}) {
+
+// Stream big file in worker thread
+
+Papa.parse("uscities-data.csv", {
+	worker: true,
+	step: function(results) {
+		console.log("Row:", results.data);
+	}
+});
+
+
   return (
     <div>
       <h1>City</h1>
