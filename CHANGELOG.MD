@@ -48,5 +48,8 @@ https://nextjs.org/docs/messages/react-hydration-error
 
 li key={city._id}
 
+# v1.1.12
+nextJS SSR timestamp removed
+
 
 

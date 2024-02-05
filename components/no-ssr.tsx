@@ -12,8 +12,7 @@ export default function NoSSR() {
 
   return (
     <div>
-      NoSSR
-      <time datetime="2016-10-25" suppressHydrationWarning />
+      {NoSSR}
       <h1>{isClient ? "This is never prerendered" : "Prerendered"}</h1>
     </div>
   );
