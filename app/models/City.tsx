@@ -1,5 +1,7 @@
 // models/City.js
 
+import mongoose from "mongoose";
+
 const CitySchema = new mongoose.Schema({
     name: String,
     state: String,
