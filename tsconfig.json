@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/city.tsx",
+    "pages/Cities.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [

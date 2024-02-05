@@ -1,6 +1,8 @@
+
 import { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
 import Papa from "papaparse";
+import NoSSR from "../components/no-ssr";
 
 // Copilot
 interface City {
@@ -15,6 +17,8 @@ interface CitiesProps {
 }
 
 export default function Cities({cities}: CityProps ) {
+ 
+
   // Copilot
   // Declare cities variable here
   let citiesHelper: City[];
@@ -36,10 +40,12 @@ export default function Cities({cities}: CityProps ) {
 
   return (
     <div>
+
+      <NoSSR />
       <h1>City</h1>
       <ul>
         {cities.map((city: City) => (
-          <li key={city.city}>
+          <li key={city._id}>
             <h2>{city.city}</h2>
             <h2>{city.state_name}</h2>
           </li>
