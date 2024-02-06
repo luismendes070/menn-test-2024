@@ -79,4 +79,10 @@ https://stackoverflow.com/questions/44832316/variable-test-is-used-before-being-
 # v1.1.20
 async papaparse
 
+# v1.1.21
+papaparse TypeScript and Copilot
+https://stackoverflow.com/questions/71434654/typescript-papaparse-no-overload-matches-this-call
+
+
+
 

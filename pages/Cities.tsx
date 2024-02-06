@@ -1,7 +1,7 @@
 
 import { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
-import Papa from "papaparse";
+import { Papa, ParseResult } from "papaparse";
 import NoSSR from "../components/no-ssr";
 
 // Copilot
@@ -30,12 +30,12 @@ try{
   csvResults = await new Promise((resolve, reject) => {
   Papa.parse(new URL("uscities-data.csv").toString(), {
     worker: true,
-    step: function (results:City[]) {
+    step: function (results: ParseResult<City>) {// Copilot
       csvResults = results.data;
       console.log("Row:", results.data);
     },
     // Use complete callback to assign data to cities variable
-    complete: function (results) {
+    complete: function () {
       // citiesHelper = results.data;
       cities = csvResults;
     },
