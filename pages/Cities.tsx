@@ -34,26 +34,5 @@ export default async function Cities({cities}: CitiesProps ) {
   );
 }
 
-// Copilot
-export const getServerSideProps: GetServerSideProps<CitiesProps> = async (
-  context
-) => {
-  try {
-    const client = await clientPromise;
 
-    const db = client.db("menn_test_2024");
 
-    const cities = await db
-      .collection("menn_test_2024_Collection")
-      .find({})
-      .sort({ metacritic: -1 })
-      .limit(20)
-      .toArray();
-
-    return {
-      props: { cities: JSON.parse(JSON.stringify(cities)) },
-    };
-  } catch (e:any) {
-    console.error(e);
-  }
-};

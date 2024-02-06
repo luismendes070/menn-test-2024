@@ -86,6 +86,9 @@ https://stackoverflow.com/questions/71434654/typescript-papaparse-no-overload-ma
 # v1.1.22
 papaparse removed
 
+# v1.1.23
+getServerSideProps removed
+
 
 
 
