@@ -89,6 +89,9 @@ papaparse removed
 # v1.1.23
 getServerSideProps removed
 
+# v1.1.24
+getServerSideProps and @sanity/client
+
 
 
 
