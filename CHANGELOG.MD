@@ -83,6 +83,9 @@ async papaparse
 papaparse TypeScript and Copilot
 https://stackoverflow.com/questions/71434654/typescript-papaparse-no-overload-matches-this-call
 
+# v1.1.22
+papaparse removed
+
 
 
 

@@ -1,7 +1,6 @@
 
 import { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
-import { Papa, ParseResult } from "papaparse";
 import NoSSR from "../components/no-ssr";
 
 // Copilot
@@ -17,44 +16,6 @@ interface CitiesProps {
 }
 
 export default async function Cities({cities}: CitiesProps ) {
- 
-
-  // Copilot
-  // Declare cities variable here
-  let csvResults: City[];
-
-  // Stream big file in worker thread
-
-try{
-
-  csvResults = await new Promise((resolve, reject) => {
-  Papa.parse(new URL("uscities-data.csv").toString(), {
-    worker: true,
-    step: function (results: ParseResult<City>) {// Copilot
-      csvResults = results.data;
-      console.log("Row:", results.data);
-    },
-    // Use complete callback to assign data to cities variable
-    complete: function () {
-      // citiesHelper = results.data;
-      cities = csvResults;
-    },
-    // Use reject to handle errors
-    error: function (error:any) {
-      reject(error);
-    }
-    });
-  });
-
-  return csvResults;//Copilot
-
-}catch(error:any){
-
-console.log(error.message);
-
-}finally{
-
-}
 
   return (
     <div>
