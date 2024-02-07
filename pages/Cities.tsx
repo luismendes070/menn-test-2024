@@ -1,6 +1,5 @@
 
 import { GetServerSideProps } from "next"; // Copilot
-import {client} from "../sanity";
 import clientPromise from "../lib/mongodb";
 import NoSSR from "../components/no-ssr";
 
@@ -35,48 +34,27 @@ export default async function Cities({cities}: CitiesProps ) {
   );
 }
 
-// Copilot
-export const getServerSideProps: GetServerSideProps<CitiesProps> = async (
-  context
-) => {
+// next-with-mongodb sample
+export async function getServerSideProps(context:any) {
   try {
-    const query = `* [_type == "collection"] {
-      _id,
-      title,
-      address,
-      description,
-      nftCollectionName,
-      mainImage {
-        asset
-      },
-      previewImage {
-        asset
-      },
-      slug {
-        current
-      },
-      creator -> {
-        _id,
-        name,
-        address,
-        slug {
-          current
-        },
-      },
-    }`;
-
-    const collections = await client.fetch(query);
+    await clientPromise
+    // `await clientPromise` will use the default database passed in the MONGODB_URI
+    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
+    //
+    const client = await clientPromise
+    const db = client.db("menn_test_2024")
+    //
+    // Then you can execute queries against your database like so:
+    db.find({}).toArray() as City[] // or any of the MongoDB Node Driver commands
 
     return {
-      props: {
-        collections,
-      },
-    };
-  } catch (err) {
-    // handle the error and return a proper object
+      props: { isConnected: true },
+    }
+  } catch (e) {
+    console.error(e)
     return {
-      notFound: true, // or redirect: { destination: "/error" }
-    };
+      props: { isConnected: false },
+    }
   }
-};
+}
 

@@ -92,6 +92,12 @@ getServerSideProps removed
 # v1.1.24
 getServerSideProps and @sanity/client
 
+# v1.1.25
+csv nextjs workaround
+https://www.reddit.com/r/nextjs/comments/v8hhwt/comment/ibr093m/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+
+import @sanity/client removed
+
 
 
 
