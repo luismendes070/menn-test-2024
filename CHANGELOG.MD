@@ -104,6 +104,9 @@ import @sanity/client removed
 # v1.1.27
 db.find query removed
 
+# v1.1.28
+npm install express-oauth2-jwt-bearer
+
 
 
 
