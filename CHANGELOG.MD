@@ -98,6 +98,9 @@ https://www.reddit.com/r/nextjs/comments/v8hhwt/comment/ibr093m/?utm_source=shar
 
 import @sanity/client removed
 
+# v1.1.26
+env
+
 
 
 
