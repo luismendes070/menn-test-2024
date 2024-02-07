@@ -107,6 +107,10 @@ db.find query removed
 # v1.1.28
 npm install express-oauth2-jwt-bearer
 
+# v1.1.29
+https://www.mongodb.com/docs/manual/tutorial/query-arrays/#match-an-array
+https://stackoverflow.com/questions/22633977/converting-an-array-to-cursor
+
 
 
 

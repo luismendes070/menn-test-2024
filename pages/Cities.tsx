@@ -47,6 +47,15 @@ export async function getServerSideProps(context:any) {
     // Then you can execute queries against your database like so:
     // db.find({}).toArray() as City[] // or any of the MongoDB Node Driver commands
 
+    const cursor = db.collection('menn_test_2024_Collection').find({
+      tags: ['_id', 'city','state_id','state_name']
+    });
+
+    let cursor2 = new Iterator();
+cursor2.createCursor( cursor );
+
+cursor2.next();    // returns just the first element of the array
+
     return {
       props: { isConnected: true },
     }
