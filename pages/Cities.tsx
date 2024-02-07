@@ -1,4 +1,3 @@
-
 import { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
 import NoSSR from "../components/no-ssr";
@@ -15,11 +14,9 @@ interface CitiesProps {
   cities: City[];
 }
 
-export default async function Cities({cities}: CitiesProps ) {
-
+export default async function Cities({ cities }: CitiesProps) {
   return (
     <div>
-
       <NoSSR />
       <h1>City</h1>
       <ul>
@@ -35,35 +32,37 @@ export default async function Cities({cities}: CitiesProps ) {
 }
 
 // next-with-mongodb sample
-export async function getServerSideProps(context:any) {
+export async function getServerSideProps(context: any) {
   try {
-    await clientPromise
+    await clientPromise;
     // `await clientPromise` will use the default database passed in the MONGODB_URI
     // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
     //
-    const client = await clientPromise
-    const db = client.db("menn_test_2024")
+    const client = await clientPromise;
+    const db = client.db("menn_test_2024");
     //
     // Then you can execute queries against your database like so:
     // db.find({}).toArray() as City[] // or any of the MongoDB Node Driver commands
 
-    const cursor = db.collection('menn_test_2024_Collection').find({
-      tags: ['_id', 'city','state_id','state_name']
+    const cursor = db.collection("menn_test_2024_Collection").find({
+      tags: ["_id", "city", "state_id", "state_name"],
     });
 
-    let cursor2 = new Iterator();
-cursor2.createCursor( cursor );
+    // Use a for await...of loop to iterate over the cursor
+    for await (const doc of cursor) {
+      // Render the document in some way, such as console.log or res.send
+      console.log(doc);
+    }
 
-cursor2.next();    // returns just the first element of the array
+    await cursor.close();
 
     return {
       props: { isConnected: true },
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       props: { isConnected: false },
-    }
+    };
   }
 }
-

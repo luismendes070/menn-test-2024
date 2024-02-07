@@ -111,6 +111,8 @@ npm install express-oauth2-jwt-bearer
 https://www.mongodb.com/docs/manual/tutorial/query-arrays/#match-an-array
 https://stackoverflow.com/questions/22633977/converting-an-array-to-cursor
 
+# v1.1.30
+https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/read-operations/cursor/
 
 
 
