@@ -1,6 +1,7 @@
-import { GetServerSideProps } from "next"; // Copilot
+import next, { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
 import NoSSR from "../components/no-ssr";
+import { useEffect } from "react";
 
 // Copilot
 interface City {
@@ -15,6 +16,22 @@ interface CitiesProps {
 }
 
 export default async function Cities({ cities }: CitiesProps) {
+
+  // Bard
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        getServerSideProps (next)
+      } catch (error:any) {
+        console.log(error.message);
+      }
+    };
+  
+    fetchData();
+  
+    // Implement file change watcher or API call as needed
+  }, []);  
+
   return (
     <div>
       <NoSSR />
@@ -66,3 +83,5 @@ export async function getServerSideProps(context: any) {
     };
   }
 }
+
+
