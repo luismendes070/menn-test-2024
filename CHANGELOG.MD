@@ -117,6 +117,10 @@ https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/read-operati
 # v1.1.31
 Bard useEffect
 
+# v1.1.32
+All new deployments fail in 504 FUNCTION_INVOCATION_TIMEOUT #1813
+https://github.com/orgs/vercel/discussions/1813
+
 
 
 
