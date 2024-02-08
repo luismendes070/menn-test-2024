@@ -134,6 +134,9 @@ npm install --save-dev cross-env
 # v1.1.36
 npm i jest-environment-jsdom
 
+# v1.1.37
+"moduleResolution": "node",
+
 
 
 
