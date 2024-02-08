@@ -124,6 +124,11 @@ https://github.com/orgs/vercel/discussions/1813
 # v1.1.33
 next test and supertest api test
 
+# v1.1.34
+https://www.freecodecamp.org/news/how-to-test-in-express-and-mongoose-apps/
+https://github.com/luismendes070/jest-tests-demo
+
+
 
 
 

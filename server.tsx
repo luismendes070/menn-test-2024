@@ -60,6 +60,11 @@ fs.createReadStream("uscities-data.csv")
 app.use(cors());
 app.use(bodyParser.json());
 
+/* This is the root route. It is used to check if the server is running. */
+app.get("/", (req: any, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { alive: string; }): void; new(): any; }; }; }) => {
+  res.status(200).json({ alive: "True" });
+});
+
 // Import Routes
 const cityRoute = require("./routes/cities");
 app.use("/state/city", cityRoute);
@@ -75,3 +80,5 @@ try {
 
 
 app.listen(3000);
+
+module.exports = app;

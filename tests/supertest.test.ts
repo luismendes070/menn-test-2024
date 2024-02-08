@@ -1,6 +1,6 @@
 // supertest.test.ts
 import request from 'supertest';
-import app from '../pages/Cities'; // Your Next.js app
+import app from '../server'; // Your Next.js app
 
 describe('GET /api/users', () => {
   // Test cases for querying an array of users
