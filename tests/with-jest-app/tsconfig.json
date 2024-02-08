@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"]
+    },
     "plugins": [
       {
         "name": "next"
@@ -28,10 +30,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/Cities.tsx",
+    "types.d.ts",
     ".next/types/**/*.ts"
-, "tests/with-jest-app/__tests__/page.test.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+, "__tests__/page.test.jsx"  ],
+  "exclude": ["node_modules"]
 }
