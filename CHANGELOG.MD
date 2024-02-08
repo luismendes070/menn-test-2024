@@ -128,6 +128,7 @@ next test and supertest api test
 https://www.freecodecamp.org/news/how-to-test-in-express-and-mongoose-apps/
 https://github.com/luismendes070/jest-tests-demo
 
+# v1.1.35
 npm install --save-dev cross-env
 
 
