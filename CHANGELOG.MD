@@ -131,6 +131,9 @@ https://github.com/luismendes070/jest-tests-demo
 # v1.1.35
 npm install --save-dev cross-env
 
+# v1.1.36
+npm i jest-environment-jsdom
+
 
 
 
