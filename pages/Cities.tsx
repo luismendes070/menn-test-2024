@@ -1,6 +1,8 @@
+import fs from 'fs';
+import csvParser from 'csv-parser';
 import next, { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
-import NoSSR from "../components/no-ssr";
+// import NoSSR from "../components/no-ssr";
 import { useEffect } from "react";
 
 // Copilot
@@ -21,7 +23,7 @@ export default async function Cities({ cities }: CitiesProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        getServerSideProps (next)
+        getServerSideProps (next, cities)
       } catch (error:any) {
         console.log(error.message);
       }
@@ -34,7 +36,6 @@ export default async function Cities({ cities }: CitiesProps) {
 
   return (
     <div>
-      <NoSSR />
       <h1>City</h1>
       <ul>
         {cities.map((city: City) => (
@@ -49,7 +50,7 @@ export default async function Cities({ cities }: CitiesProps) {
 }
 
 // next-with-mongodb sample
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: any, cities: City[]) {
   try {
     await clientPromise;
     // `await clientPromise` will use the default database passed in the MONGODB_URI
@@ -61,17 +62,26 @@ export async function getServerSideProps(context: any) {
     // Then you can execute queries against your database like so:
     // db.find({}).toArray() as City[] // or any of the MongoDB Node Driver commands
 
-    const cursor = db.collection("menn_test_2024_Collection").find({
-      tags: ["_id", "city", "state_id", "state_name"],
+    fs.createReadStream("../uscities-data.csv")
+    .pipe(csvParser())
+    .on('data', async (row: { id: any; name: any; children: any; }) => {
+        // Assuming your CSV has columns: id, name, children
+        const { id, name, children } = row;
+
+        // Convert children string to an array
+        cities = children.split(',').map((child: string) => child.trim());
+        // const childrenArray = children.split(',').map((child: string) => child.trim());
+
+        // cities = childrenArray;
+
+        // Insert data into MongoDB
+        // await collection.insertOne({ id, name, children: childrenArray });
+
+        client.close();
+    })
+    .on('end', () => {
+        console.log('CSV data imported successfully');
     });
-
-    // Use a for await...of loop to iterate over the cursor
-    for await (const doc of cursor) {
-      // Render the document in some way, such as console.log or res.send
-      console.log(doc);
-    }
-
-    await cursor.close();
 
     return {
       props: { isConnected: true },

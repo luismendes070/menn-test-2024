@@ -137,6 +137,10 @@ npm i jest-environment-jsdom
 # v1.1.37
 "moduleResolution": "node",
 
+# v1.1.38
+uDSV csv parser next community
+Copilot TypeScript implementation
+
 
 
 
