@@ -141,6 +141,9 @@ npm i jest-environment-jsdom
 uDSV csv parser next community
 Copilot TypeScript implementation
 
+# v1.1.39
+Netlify functions 
+Copilot TypeScript implementation
 
 
 
