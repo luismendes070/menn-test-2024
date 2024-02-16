@@ -152,6 +152,9 @@ https://stackoverflow.com/questions/47504868/catch-504-gateway-timeout-error-in-
 # v1.1.41
 rollback v1.1.39
 
+# v1.1.42
+Ten lines csv
+
 
 
 
