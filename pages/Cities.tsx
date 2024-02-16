@@ -1,5 +1,5 @@
-import fs from 'fs';
-import csvParser from 'csv-parser';
+import fs from "fs";
+import csvParser from "csv-parser";
 import next, { GetServerSideProps } from "next"; // Copilot
 import clientPromise from "../lib/mongodb";
 // import NoSSR from "../components/no-ssr";
@@ -18,21 +18,34 @@ interface CitiesProps {
 }
 
 export default async function Cities({ cities }: CitiesProps) {
-
   // Bard
   useEffect(() => {
     const fetchData = async () => {
       try {
-        getServerSideProps (next, cities)
-      } catch (error:any) {
+        getServerSideProps(next, cities);
+      } catch (error: any) {
         console.log(error.message);
-      }
+
+        // Copilot https://stackoverflow.com/questions/47504868/catch-504-gateway-timeout-error-in-react-javascript
+        return getItemsByName(operand:any, trimmedValue:any)
+          .then((result:any) => (combinedResults:any = [].concat(result)))
+          .then(() => getItemsByCode(operand, trimmedValue))
+          .then((result:any) => (combinedResults:any = combinedResults.concat(result)))
+          .catch((error:any) => {
+            if (error.response) {
+              // if there is response, it means its not a 50x, but 4xx
+            } else {
+              // gets activated on 50x errors, since no response from server
+              // do whatever you want here :)
+            }
+          });
+      } // end catch block
     };
-  
+
     fetchData();
-  
+
     // Implement file change watcher or API call as needed
-  }, []);  
+  }, []);
 
   return (
     <div>
@@ -63,13 +76,13 @@ export async function getServerSideProps(context: any, cities: City[]) {
     // db.find({}).toArray() as City[] // or any of the MongoDB Node Driver commands
 
     fs.createReadStream("../uscities-data.csv")
-    .pipe(csvParser())
-    .on('data', async (row: { id: any; name: any; children: any; }) => {
+      .pipe(csvParser())
+      .on("data", async (row: { id: any; name: any; children: any }) => {
         // Assuming your CSV has columns: id, name, children
         const { id, name, children } = row;
 
         // Convert children string to an array
-        cities = children.split(',').map((child: string) => child.trim());
+        cities = children.split(",").map((child: string) => child.trim());
         // const childrenArray = children.split(',').map((child: string) => child.trim());
 
         // cities = childrenArray;
@@ -78,10 +91,10 @@ export async function getServerSideProps(context: any, cities: City[]) {
         // await collection.insertOne({ id, name, children: childrenArray });
 
         client.close();
-    })
-    .on('end', () => {
-        console.log('CSV data imported successfully');
-    });
+      })
+      .on("end", () => {
+        console.log("CSV data imported successfully");
+      });
 
     return {
       props: { isConnected: true },
@@ -93,5 +106,11 @@ export async function getServerSideProps(context: any, cities: City[]) {
     };
   }
 }
+function getItemsByName(operand: any, any: any, trimmedValue: any, any1: any) {
+  throw new Error("Function not implemented.");
+}
 
+function getItemsByCode(operand: any, trimmedValue: any) {
+  throw new Error("Function not implemented.");
+}
 

@@ -145,6 +145,11 @@ Copilot TypeScript implementation
 Netlify functions 
 Copilot TypeScript implementation
 
+# v1.1.40 
+Copilot
+https://stackoverflow.com/questions/47504868/catch-504-gateway-timeout-error-in-react-javascript
+
+
 
 
 
