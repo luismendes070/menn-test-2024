@@ -149,6 +149,9 @@ Copilot TypeScript implementation
 Copilot
 https://stackoverflow.com/questions/47504868/catch-504-gateway-timeout-error-in-react-javascript
 
+# v1.1.41
+rollback v1.1.39
+
 
 
 

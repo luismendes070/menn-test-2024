@@ -25,20 +25,6 @@ export default async function Cities({ cities }: CitiesProps) {
         getServerSideProps(next, cities);
       } catch (error: any) {
         console.log(error.message);
-
-        // Copilot https://stackoverflow.com/questions/47504868/catch-504-gateway-timeout-error-in-react-javascript
-        return getItemsByName(operand:any, trimmedValue:any)
-          .then((result:any) => (combinedResults:any = [].concat(result)))
-          .then(() => getItemsByCode(operand, trimmedValue))
-          .then((result:any) => (combinedResults:any = combinedResults.concat(result)))
-          .catch((error:any) => {
-            if (error.response) {
-              // if there is response, it means its not a 50x, but 4xx
-            } else {
-              // gets activated on 50x errors, since no response from server
-              // do whatever you want here :)
-            }
-          });
       } // end catch block
     };
 
@@ -99,18 +85,12 @@ export async function getServerSideProps(context: any, cities: City[]) {
     return {
       props: { isConnected: true },
     };
-  } catch (e) {
+  } catch (e:any) {
     console.error(e);
     return {
       props: { isConnected: false },
     };
   }
 }
-function getItemsByName(operand: any, any: any, trimmedValue: any, any1: any) {
-  throw new Error("Function not implemented.");
-}
 
-function getItemsByCode(operand: any, trimmedValue: any) {
-  throw new Error("Function not implemented.");
-}
 
