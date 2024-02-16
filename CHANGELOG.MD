@@ -155,6 +155,20 @@ rollback v1.1.39
 # v1.1.42
 Ten lines csv
 
+# v1.1.43
+Five lines reduction 
+Free Vercel limit
+Response size
+474B
+Executed for
+10.3s
+Sent at
+Feb 16, 2024, 02:36 PM
+
+# v1.1.44
+nodejs 20.11.1 LTS slim-lts
+https://github.com/nodejs/docker-node/blob/a54ad036b53ed4d64744aa5aba25e78be5e4e7b1/20/bookworm-slim/Dockerfile
+
 
 
 
