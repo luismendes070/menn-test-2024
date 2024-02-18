@@ -169,6 +169,9 @@ Feb 16, 2024, 02:36 PM
 nodejs 20.11.1 LTS slim-lts
 https://github.com/nodejs/docker-node/blob/a54ad036b53ed4d64744aa5aba25e78be5e4e7b1/20/bookworm-slim/Dockerfile
 
+# v1.1.45
+nodejs 20-alpine docker image
+
 
 
 
