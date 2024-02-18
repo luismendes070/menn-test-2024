@@ -172,6 +172,13 @@ https://github.com/nodejs/docker-node/blob/a54ad036b53ed4d64744aa5aba25e78be5e4e
 # v1.1.45
 nodejs 20-alpine docker image
 
+# v.1.46
+const port = process.env.PORT ?? 8080;
+is safer than
+const port = process.env.PORT || 8080;
+
+
+
 
 
 

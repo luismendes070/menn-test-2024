@@ -19,7 +19,7 @@ const City = mongoose.model("City", require("./app/models/City.tsx"));
 // const app = express();
 const { auth } = require('express-oauth2-jwt-bearer');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT ?? 8080;
 
 const jwtCheck = auth({
   audience: 'https://menn-test-2024.vercel.app/',
@@ -73,7 +73,8 @@ app.use("/state/city", cityRoute);
 try {
   await mongoose.connect(
     process.env.MONGODB_URI as string
-  ).then(() => console.log("connected to DB!")); // use then method instead of callback
+  ).then(() => console.log("connected to DB!"))
+  .catch((error) => console.error("An error occurred:", error));; // use then method instead of callback
 } catch (error:any) {
   console.log(error.message);
 }
