@@ -2,15 +2,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "babel src -d lib",
     "start": "next start",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000"
+    "test": "jest"
   },
   "author": {
     "name": "Luis Mendes",
     "email": "machadoluismendes@gmail.com",
     "url": "https://luismendesmachadoblog.wordpress.com/"
   },
+  "license": "Apache-2.0",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -35,7 +36,7 @@
   "devDependencies": {
     "@types/mongodb": "^4.0.7",
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^18.7.5",
+    "@types/node": "^18.19.19",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^18.2.18",
     "@types/supertest": "^6.0.2",
