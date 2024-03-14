@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "babel src -d lib",
+    "build": "next build",
+    "babel:jest:build": "npx yarn run babel src -d lib",
     "start": "next start",
     "test": "jest"
   },
