@@ -4,7 +4,33 @@ import { pipeline } from "stream";
 import parse from "csv-parse";
 import stringify from "csv-stringify";
 
+// ChatGPT rate limit fix
+// Import express-rate-limit package
+var RateLimit = require('express-rate-limit');
+
+// Define rate limiting middleware with specified parameters
+var limiter = new RateLimit({
+  windowMs: parseInt(config.RATE_LIMITING_WINDOW_MILLISECONDS),
+  max: parseInt(config.RATE_LIMITING_REQUEST_LIMIT),
+  delayMs: 0, // Disable delaying - full speed until the max limit is reached
+  skip: function (req) {
+    return req.url.startsWith('/public'); // Skip rate limiting for public assets
+  }
+});
+
+// Apply rate limiting middleware to all requests
+app.use(limiter);
+
+
 export const config = {
+    // Define various configuration settings here
+    RATE_LIMITING_ENABLED: 'true', // Indicates whether rate limiting is enabled
+    RATE_LIMITING_WINDOW_MILLISECONDS: 60000, // Time window for rate limiting in milliseconds (e.g., 1 minute)
+    RATE_LIMITING_REQUEST_LIMIT: 100, // Maximum number of requests allowed within the window
+    BASIC_AUTH_ENABLED: 'true', // Indicates whether basic authentication is enabled
+    BASIC_AUTH_USERNAME: process.env.BASIC_AUTH_USERNAME, // Username for basic authentication
+    BASIC_AUTH_PASSWORD: process.env.BASIC_AUTH_PASSWORD, // Password for basic authentication
+    // Other configuration settings...
   api: {
     bodyParser: false,
   },
